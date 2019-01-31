@@ -12,7 +12,7 @@ enum {
 };
 
 static unsigned char *buf;
-static int mode = BUG_OVERFLOW_REDZONE;
+static int mode;
 
 static void _bug_red(void)
 {

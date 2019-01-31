@@ -12,7 +12,7 @@ enum {
 };
 
 static unsigned char *buf;
-static int mode = BUG_OVERFLOW_REDZONE;
+static int mode;
 
 static void _bug_red(void)
 {
@@ -45,7 +45,7 @@ static int __init slub_bug_init(void)
 	buf = kmalloc(32, GFP_KERNEL);
 	if (!buf) {
 		pr_err("Error, kmalloc failed!\n");
-		return -1;
+		return -ENOMEM;
 	}
 
 	switch (mode) {
